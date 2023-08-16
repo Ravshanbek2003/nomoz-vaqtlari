@@ -6,7 +6,7 @@ const nameNom = document.querySelector(".name_nom");
 // const lokal1=JSON.parse(localStorage.getItem('select1_value'))
 // const lokal2 = localStorage.getItem("select2_value");
 
-const url = "http://46.101.247.236:8080/viloyat";
+const url = "http://167.71.202.51:8080/viloyat";
 (async () => {
   const data = await fetch(url);
   const res = await data.json();
@@ -30,10 +30,12 @@ country.addEventListener("change", (e) => {
   citySet(e.target.value);
 });
 
-const ID = "http://46.101.247.236:8080/viloyat/";
+const ID = "http://167.71.202.51:8080/viloyat/";
 async function citySet(val) {
+  console.log(val);
   const newData = await fetch(ID + val);
   const newRes = await newData.json();
+  console.log(newRes);
   city.innerHTML = `<option selected disabled>shaharni tanlang </option>`;
 
   newRes.data.forEach((element) => {
@@ -48,7 +50,7 @@ city.addEventListener("change", (e) => {
   render(e.target.value);
 });
 
-const x = "http://46.101.247.236:8080/shahar/";
+const x = "http://167.71.202.51:8080/shahar/";
 async function render(name) {
   // localStorage.setItem('select2_value',name)
   main.innerHTML = `
